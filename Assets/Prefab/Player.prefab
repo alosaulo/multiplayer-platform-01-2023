@@ -169,8 +169,8 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  speed: 200
-  jumpForce: 5000
+  speed: 5
+  jumpForce: 20
   onGround: 0
 --- !u!114 &7659895674837139588
 MonoBehaviour:

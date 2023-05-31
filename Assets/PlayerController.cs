@@ -43,8 +43,7 @@ public class PlayerController : NetworkBehaviour
             {
                 if (Input.GetButtonDown("Jump"))
                 {
-                    rb.AddForce(Vector3.up * jumpForce);
-                    //rb.velocity =  * Time.deltaTime;
+                    rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 }
             }
         }
@@ -52,8 +51,8 @@ public class PlayerController : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        Move();
         Jump();
+        Move();
         ChangeAnimation();
         Gravity();
     }
@@ -68,7 +67,7 @@ public class PlayerController : NetworkBehaviour
 
     void Move() 
     {
-        rb.velocity = Vector3.right * hAxis * speed * Time.deltaTime;
+        rb.velocity = new Vector2(hAxis * speed, rb.velocity.y);
     }
 
     void ChangeAnimation() 
